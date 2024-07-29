@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/',async(req,res)=>{
 
     try{
-            let data = await db.collection('collection').find().toArray()
+            let data = await db.collection('collection').find({}, { projection: { _id: 0 } }).toArray()
             console.log("Data retrieved from collection:", data)
             res.status(200).json(data)
         }
