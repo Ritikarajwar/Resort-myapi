@@ -38,11 +38,15 @@ app.post('/', async (req, res) => {
     // console.log(req.body)
     let name = req.body.name
     let location = req.body.location
-    let time = req.body.time
-    let fees = req.body.fees
+    let starttime = req.body.starttime
+    let endtime = req.body.endtime
+    let adultfees = req.body.adultfees
+    let childfees = req.body.childfees
+    let currency = req.body.currency
     let description = req.body.description
+
     let id 
-    // console.log(req.files)
+    console.log(req.files)
 
     let images = []
     if (req.files) {
@@ -85,7 +89,15 @@ app.post('/', async (req, res) => {
     }
     
     try {
-        let data = {id,name,location,time,fees,description,images}
+        let time = {
+            starttime:starttime,
+            endtime:endtime
+        }
+        let fees = {
+            adultfees:adultfees,
+            childfees:childfees
+        }
+        let data = {id,name,location,time,fees,currency,description,images}
         let details = await db.collection('collection').insertOne(data)
         // console.log(id)
     }
