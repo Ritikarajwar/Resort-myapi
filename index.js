@@ -42,7 +42,7 @@ app.post('/', async (req, res) => {
     let endtime = req.body.endtime
     let adultfees = req.body.adultfees
     let childfees = req.body.childfees
-    let currency = req.body.currency
+    let currency = "INR"
     let description = req.body.description
 
     let id 
@@ -112,7 +112,7 @@ app.post('/', async (req, res) => {
 app.get('/:id', async(req,res)=>{
     let id_no = req.url.split('')[1];
     console.log(Number(id_no))
-    let data = await db.collection('collection').find({id:Number(id_no)}).toArray();
+    let data = await db.collection('collection').find({id:Number(id_no)},{ projection: { _id: 0 } }).toArray();
     
     res.send(data)
     
