@@ -42,7 +42,8 @@ app.post('/', async (req, res) => {
     let endtime = req.body.endtime
     let adultfees = req.body.adultfees
     let childfees = req.body.childfees
-    let currency = "INR"
+    // let currency = "INR"
+    let currency = req.body.currency
     let description = req.body.description
 
     let id 
@@ -110,9 +111,9 @@ app.post('/', async (req, res) => {
 })
 
 app.get('/:id', async(req,res)=>{
-    let id_no = req.url.split('')[1];
+    let id_no = req.url.split('')[1]
     console.log(Number(id_no))
-    let data = await db.collection('collection').find({id:Number(id_no)},{ projection: { _id: 0 } }).toArray();
+    let data = await db.collection('collection').find({id:Number(id_no)},{ projection: { _id: 0 } }).toArray()
     
     res.send(data)
     
@@ -123,4 +124,4 @@ connection.then((client) => {
     app.listen(port, () => console.log(port + " started"))
 }).catch(err => {
     console.error("Failed to connect to database:", err)
-});
+})
