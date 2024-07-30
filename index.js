@@ -42,8 +42,8 @@ app.post('/', async (req, res) => {
     let endtime = req.body.endtime
     let adultfees = req.body.adultfees
     let childfees = req.body.childfees
-    // let currency = "INR"
-    let currency = req.body.currency
+    let currency = "INR"
+    // let currency = req.body.currency
     let description = req.body.description
 
     let id 
