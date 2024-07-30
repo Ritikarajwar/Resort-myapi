@@ -42,8 +42,8 @@ app.post('/', async (req, res) => {
     let endtime = req.body.endtime
     let adultfees = req.body.adultfees
     let childfees = req.body.childfees
-    let currency = "INR"
-    // let currency = req.body.currency
+    // let currency = "INR"
+    let currency = req.body.currency
     let description = req.body.description
 
     let id 
@@ -101,7 +101,7 @@ app.post('/', async (req, res) => {
         let data = {id,name,location,time,fees,currency,description,images}
         let details = await db.collection('collection').insertOne(data)
         // console.log(id)
-         res.send(json(details))
+         // res.send(json(details))
     }
     catch (error) {
         res.status(500).json({ error })
