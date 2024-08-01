@@ -1,18 +1,16 @@
-import express from "express"
+import express, { json } from "express"
 import cors from "cors"
 import { v2 as cloudinary } from 'cloudinary'
 import fileUpload from "express-fileupload"
 import connection, { dbName } from "./connection.js"
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 const port = 8052;
 let db
 
-cloudinary.config({
-    cloud_name: 'da2oqj7qe',
-    api_key: '687377994928293',
-    api_secret: 'GcXxtuXnuQ-LJGycDcmf_DGqw_E'
-});
+
 
 app.use(express.json());
 app.use(cors({ origin: "*" }))
@@ -101,6 +99,7 @@ app.post('/', async (req, res) => {
         let data = {id,name,location,time,fees,currency,description,images}
         let details = await db.collection('collection').insertOne(data)
         // console.log(id)
+       
     }
     catch (error) {
         res.status(500).json({ error })
