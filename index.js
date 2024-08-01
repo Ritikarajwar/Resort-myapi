@@ -34,7 +34,22 @@ app.get('/',async(req,res)=>{
 
 })
 
-app.post('/', async (req, res) => {
+app.get('/getdata',async(req,res)=>{
+
+    try{
+            let data = await db.collection('collection').find({}, { projection: { _id: 0 } }).toArray()
+            console.log("Data retrieved from collection:", data)
+            res.status(200).json(data)
+        }
+        catch(error){
+        res.status(500).json({error})
+        console.error("Error retrieving data:", error)
+        }
+
+
+})
+
+app.post('/adddata', async (req, res) => {
     // console.log(req.body)
     let name = req.body.name
     let location = req.body.location
