@@ -3,16 +3,17 @@ import cors from "cors"
 import { v2 as cloudinary } from 'cloudinary'
 import fileUpload from "express-fileupload"
 import connection, { dbName } from "./connection.js"
+import { configDotenv } from "dotenv";
 
 const app = express();
 const port = 8052;
 let db
 
 cloudinary.config({
-    cloud_name: 'da2oqj7qe',
-    api_key: '687377994928293',
-    api_secret: 'GcXxtuXnuQ-LJGycDcmf_DGqw_E'
-});
+    cloud_name: process.env.cloud_name,
+    api_key: process.env.api_key,
+    api_secret: process.env.api_key,
+  })
 
 app.use(express.json());
 app.use(cors({ origin: "*" }))
