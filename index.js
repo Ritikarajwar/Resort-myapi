@@ -99,7 +99,11 @@ app.post('/', async (req, res) => {
         let data = {id,name,location,time,fees,currency,description,images}
         let details = await db.collection('collection').insertOne(data)
         // console.log(id)
+<<<<<<< HEAD
        
+=======
+         // res.send(json(details))
+>>>>>>> 7ecbc43628f0f11f3e82cb4e74d691d4851d2218
     }
     catch (error) {
         res.status(500).json({ error })
