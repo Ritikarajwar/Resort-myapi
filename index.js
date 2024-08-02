@@ -5,6 +5,7 @@ import fileUpload from "express-fileupload"
 import connection, { dbName } from "./connection.js"
 import { configDotenv } from "dotenv";
 
+configDotenv()
 const app = express();
 const port = 8052;
 let db
