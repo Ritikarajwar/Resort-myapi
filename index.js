@@ -7,7 +7,7 @@ import { configDotenv } from "dotenv";
 
 configDotenv()
 const app = express();
-const port = process.env.port;
+const port = 8052;
 let db
 
 
