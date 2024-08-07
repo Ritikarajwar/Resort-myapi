@@ -3,7 +3,6 @@ import cors from "cors"
 import { v2 as cloudinary } from 'cloudinary'
 import fileUpload from "express-fileupload"
 import connection, { dbName } from "./connection.js"
-// import connection, { dbName } from "./connection1.js"
 import { configDotenv } from "dotenv";
 
 configDotenv()
