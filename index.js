@@ -13,10 +13,10 @@ let db
 
 
 cloudinary.config({
-    cloud_name: 'da2oqj7qe',
-    api_key: '687377994928293',
-    api_secret: 'GcXxtuXnuQ-LJGycDcmf_DGqw_E'
-});
+    cloud_name: process.env.cloud_name,
+    api_key: process.env.api_key,
+    api_secret: process.env.api_secret,
+  })
 
 
 app.use(express.json());
