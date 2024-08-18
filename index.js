@@ -172,7 +172,7 @@ app.get('/:id', async(req,res)=>{
 
     } catch (error) {
         console.error('Error deleting park:', error);
-        res.status(500).json({ error: 'Server error' })
+        res.status(500).json({ error })
     }
 })
 
