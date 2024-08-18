@@ -28,7 +28,7 @@ app.get('/',async(req,res)=>{
 
     try{
             let data = await db.collection('collection').find({}, { projection: { _id: 0 } }).toArray()
-            console.log("Data retrieved from collection:", data)
+            // console.log("Data retrieved from collection:", data)
             res.status(200).json(data)
         }
         catch(error){
@@ -139,7 +139,7 @@ app.post('/adddata', async (req, res) => {
 
 app.get('/:id', async(req,res)=>{
     let id_no = req.url.split('')[1]
-    console.log(Number(id_no))
+    // console.log(Number(id_no))
     let data = await db.collection('collection').find({id:Number(id_no)},{ projection: { _id: 0 } }).toArray()
     
     res.send(data)
@@ -150,9 +150,9 @@ app.get('/:id', async(req,res)=>{
     // console.log(req.params.id)
     let  parkId = Number(req.params.id)
     // console.log(parkId)
-
+    
     try {
-        // phele data find kr fir image delte kr cloud s fir db s data delete krnaa
+        // phele data find kr fir image delete kr cloud s fir db s data delete krnaa
         let data = await db.collection('collection').find({id:parkId}).toArray()
         console.log(data[0].publicId)
         for(let i = 0;i<3;i++){
